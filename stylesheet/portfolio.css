@@ -1,7 +1,17 @@
 /***** GENERAL STYLING *****/
-.mySlides {display: none;}
-/* Body */
+.mySlides {
+    display: none;
+    text-align: center;   /* centers image horizontally */
+}
 
+.mySlides img {
+    width: 80%;           /* controls size (adjustable) */
+    max-width: 500px;     /* prevents it from getting too huge */
+    height: auto;         /* keeps image ratio */
+    margin: 0 auto;       /* centers image */
+    display: block;
+    object-fit: contain;  /* prevents cropping */
+}
 
 /* Heading 1 elements */
 h1 {
@@ -10,7 +20,7 @@ h1 {
     font-weight: bolder;
     text-align: center; /* Centering all h1 elements */
     margin-top: 1%; /* Adds a small margin above h1 elements */
-    color: #white; 
+    color:  rgb(0, 0, 0); 
 }
 
 /* Heading 1 element hover effect */
@@ -316,11 +326,10 @@ form {
 
 /* Slider container */
 .slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  height: auto;
-  margin: auto;
- 
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 60px 0;   /* adds space top and bottom */
+    text-align: center;
 }
 
 /* Animation */
@@ -331,13 +340,19 @@ form {
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: 0} 
   to {opacity: 1}
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 12px}
+}
+
+@media screen and (max-width: 768px) {
+    .mySlides img {
+        width: 95%;
+    }
 }
 
 /* The dots/bullets/indicators */
@@ -358,7 +373,6 @@ form {
 /* Caption text */
 .text {
   position: absolute;
-  bottom: -5%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -376,7 +390,6 @@ ul {
 }
 
 .soc {
-    position: center;
     text-align: center;
     color: cadetblue;
 }
@@ -414,3 +427,102 @@ ul {
   background: #007bb5;
   color: white;
 }
+
+/* Floating button */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #289ead;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* Modal background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+
+    /* center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal box (SMALL POPUP CARD) */
+.modal-content {
+    background-color: white;
+    width: 10px;          /* 👈 fixed compact width like your sample */
+    max-width: 20%;
+    padding: 25px 20px;
+    border-radius: 14px;
+    position: relative;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    animation: popIn 0.25s ease;
+}
+
+/* animation */
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.modal-content input[type="submit"] {
+    background-color: #4aa3df;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #2f8fce;
+    transform: none;
+}
+
